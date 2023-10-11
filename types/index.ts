@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, SetStateAction } from "react";
 
 // ? means optional
 export interface CustomButtonProps {
@@ -12,8 +12,8 @@ export interface CustomButtonProps {
 }
 
 export interface SearchManufacturerProps {
-  manufacturer: string;
-  setManufacturer: (manufacturer: string) => void;
+  selected: string;
+  setSelected: (selected: string) => void;
 }
 
 export interface CarProps {
@@ -49,11 +49,15 @@ export interface OptionProps {
 }
 
 export interface CustomFilterProps {
-  title: string;
   options: OptionProps[];
+  setFilter: (filter: any) => void;
+  // setFilter: (filter: string | SetStateAction<number>) => void;
 }
 
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit: (limit: number) => void;
 }
+
+export type CarState = CarProps[] & { message?: string };
